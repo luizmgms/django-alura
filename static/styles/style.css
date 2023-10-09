@@ -87,13 +87,14 @@ table {
     background: linear-gradient(45deg, #C98CF1,#7B78E5);
     display: flex;
     height: auto;
-    justify-content: space-between;
+    justify-content: center;
     padding: 2px;
     width: auto; 
 }
 
 .busca__fundo {
     align-items: center;
+    justify-content: center;
     background-color: #041A37;
     border-radius: 8px;
     display: flex;
@@ -109,6 +110,7 @@ table {
     height: 24px;
     padding: 10px;
     width: 500px;
+    color: white;
 }
 
 .busca__icone {
@@ -381,4 +383,10 @@ table {
 .tags__tag:hover {
     border: 2px solid #7B78E5;
     cursor: pointer;
+}
+
+.form_busca {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
