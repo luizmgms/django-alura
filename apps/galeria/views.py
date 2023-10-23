@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from apps.galeria.models import Fotografia
+from apps.galeria.models import Fotografia, Categoria
 
 from django.contrib import messages
 
@@ -9,10 +9,12 @@ def index(request):
         return redirect('login')
     
     fotografias = Fotografia.objects.order_by("-data_fotografia").filter(publicada=True)
-    return render(request, 'galeria/index.html', {"cards": fotografias})
+    categorias = Categoria.objects.order_by("valor")
+    return render(request, 'galeria/index.html', {"cards": fotografias, "categorias": categorias})
 
 def imagem(request, foto_id):
     fotografia = get_object_or_404(Fotografia, pk=foto_id)
+    
     return render(request, 'galeria/imagem.html', {"fotografia": fotografia})
 
 def buscar(request):
@@ -28,3 +30,12 @@ def buscar(request):
             fotografias = fotografias.filter(nome__icontains=nome_a_buscar)
 
     return render(request, 'galeria/buscar.html', {"cards": fotografias})
+
+def nova_imagem(request):
+    return render(request, 'galeria/nova_imagem.html')
+
+def editar_imagem(request):
+    pass
+
+def deletar_imagem(request):
+    pass
