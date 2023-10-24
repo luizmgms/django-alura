@@ -12,7 +12,9 @@
                     <ul class="tags__lista">
                         {% if categorias %}
                         {% for tag in categorias %}
-                        <li class="tags__tag">{{ tag.valor }}</li>
+                        <li class="tags__tag">
+                            <a href="{% url 'filtro' tag.chave %}" class="btn" style="color: #c9c9c9;">{{ tag.valor }}</a>
+                        </li>
                         {% endfor %}
                         {% endif %}
                     </ul>
